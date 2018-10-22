@@ -1,3 +1,4 @@
+import { DataService } from './core/data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

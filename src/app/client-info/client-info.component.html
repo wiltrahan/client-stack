@@ -1,15 +1,15 @@
 <section class="client-card" fxLayout fxLayoutAlign="center">
   <mat-card fxFlex.xs="100%" fxFlex="400px">
-    <mat-card-title>Client Name Here</mat-card-title>
+    <mat-card-title>{{client?.firstName}} {{client?.lastName}}</mat-card-title>
     <mat-list role="list">
-        <mat-list-item role="listitem"> Phone </mat-list-item>
-        <mat-list-item role="listitem"> Email </mat-list-item>
-        <mat-list-item role="listitem"> Service </mat-list-item>
-        <mat-list-item role="listitem"> Last Appointment </mat-list-item>
+        <mat-list-item role="listitem"> {{client?.phone}} </mat-list-item>
+        <mat-list-item role="listitem"> {{client?.email}} </mat-list-item>
+        <mat-list-item role="listitem"> {{client?.service}} </mat-list-item>
+        <!-- <mat-list-item role="listitem"> Last Appointment </mat-list-item>
         <mat-list-item role="listitem"> 
           <p matLine> Next Appointment </p>
           <p matLine> Start Time | End Time </p>
-        </mat-list-item>
+        </mat-list-item> -->
        </mat-list>
     <mat-card-actions>
         <button type="submit" mat-raised-button color="primary">Edit Client</button>
