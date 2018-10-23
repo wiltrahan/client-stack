@@ -30,6 +30,7 @@ export class ClientsTableComponent implements OnInit, AfterViewInit {
   doFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }
 
 

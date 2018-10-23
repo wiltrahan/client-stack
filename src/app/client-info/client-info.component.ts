@@ -1,6 +1,10 @@
 import { IClient } from './../shared/interfaces';
 import { DataService } from './../core/data.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-client-info',
@@ -11,10 +15,19 @@ export class ClientInfoComponent implements OnInit {
   // clients: IClient[] = [];
   client: IClient;
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
-    this.client = this.dataService.getMyClient(1);
+  ngOnInit(): void {
+    this.getClient();
   }
 
+  getClient(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.dataService.getMyClient(id)
+      .subscribe(client => this.client = client);
+  }
 }
