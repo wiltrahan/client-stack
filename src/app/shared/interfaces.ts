@@ -8,7 +8,7 @@ export interface IClient {
 }
 
 export interface IClientTable {
-  id: number;
+  id?: number;
   lastName: string;
   firstName: string;
   phone: string;

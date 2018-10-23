@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './core/data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,9 +10,10 @@ import { MaterialModule } from './material.module';
 import { ClientsTableComponent } from './clients-table/clients-table.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { ClientFormComponent } from './client-info/client-form/client-form.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule, CoreModule } from '@angular/flex-layout';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     MaterialModule,
     AppRoutingModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    CoreModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

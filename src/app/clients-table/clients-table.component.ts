@@ -1,5 +1,4 @@
 import { DataService } from './../core/data.service';
-import { IClientTable } from './../shared/interfaces';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
@@ -9,16 +8,19 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
   styleUrls: ['./clients-table.component.css']
 })
 export class ClientsTableComponent implements OnInit, AfterViewInit {
+
   displayedColumns = ['firstName', 'lastName', 'phone'];
-  dataSource = new MatTableDataSource<IClientTable>();
+  dataSource = new MatTableDataSource();
+  constructor(private dataService: DataService) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
-  constructor(private dataService: DataService) { }
-
   ngOnInit() {
-    this.dataSource.data = this.dataService.getMyClients();
+    this.dataService.getClients().subscribe(
+      data => {
+        this.dataSource.data = data;
+      }
+    );
   }
 
   ngAfterViewInit() {
@@ -28,5 +30,7 @@ export class ClientsTableComponent implements OnInit, AfterViewInit {
   doFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
+
+
+
