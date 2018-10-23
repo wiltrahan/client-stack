@@ -30,44 +30,9 @@
           </mat-form-field>
         </form>
         <mat-card-actions>
-            <button (click)="save()" mat-raised-button color="primary">Edit Client</button>
+            <button (click)="editClient()" mat-raised-button color="primary">Save Changes</button>
+            <button (click)="goBack()" mat-raised-button color="primary">Back To List</button>
         </mat-card-actions>
       </mat-card>
   </section>
 </div>
-<!-- <input [(ngModel)]="hero.name" placeholder="name"/> -->
-
-<!-- <section>
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <mat-form-field>
-        <input type="text" matInput placeholder="First Name" ngModel name="firstName">
-      </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Last Name" ngModel name="lastName">
-      </mat-form-field>
-      <mat-form-field>
-          <input type="text" matInput placeholder="Phone" ngModel name="phone">
-      </mat-form-field>
-      <mat-form-field>
-          <input type="email" matInput placeholder="Email" ngModel name="email">
-      </mat-form-field>
-     
-      <mat-form-field>
-          <input matInput [matDatepicker]="lastAppt" placeholder="Last Appointment" ngModel name="lastAppt">
-          <mat-datepicker-toggle matSuffix [for]="lastAppt"></mat-datepicker-toggle>
-          <mat-datepicker #lastAppt></mat-datepicker>
-      </mat-form-field>
-     <mat-form-field>
-          <input matInput [matDatepicker]="nextAppt" placeholder="Next Appointment" ngModel name="nextAppt">
-          <mat-datepicker-toggle matSuffix [for]="nextAppt"></mat-datepicker-toggle>
-          <mat-datepicker #nextAppt></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-          <input type="time" matInput placeholder="Start Time" ngModel name="startTime">
-      </mat-form-field>
-      <mat-form-field>
-          <input type="time" matInput placeholder="End Time" ngModel name="endTime">
-      </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Submit</button>
-    </form>
-  </section> -->

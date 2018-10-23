@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { IClient } from './../shared/interfaces';
 import { DataService } from './../core/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,8 @@ export class ClientInfoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -25,5 +27,18 @@ export class ClientInfoComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.dataService.getMyClient(id)
       .subscribe(client => this.client = client);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  editClient(): void {
+    this.dataService.updateClient(this.client)
+      .subscribe(
+        data => {
+          alert('Update Sucessful for ' + data.firstName + ' ' + data.lastName);
+        }
+      );
   }
 }
