@@ -2,8 +2,6 @@ import { IClient } from './../shared/interfaces';
 import { DataService } from './../core/data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
 
 
 @Component({
@@ -12,13 +10,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./client-info.component.css']
 })
 export class ClientInfoComponent implements OnInit {
-  // clients: IClient[] = [];
   client: IClient;
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
-    private location: Location
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {

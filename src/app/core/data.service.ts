@@ -16,7 +16,8 @@ export class DataService  {
     return this.http.get<IClientTable[]>(this.baseUrl);
   }
   getMyClient(id: number): Observable<IClient> {
-    return this.http.get<IClient>(this.baseUrl + '/' + id);
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<IClient>(url);
   }
 }
 

@@ -1,19 +1,73 @@
-<section class="client-card" fxLayout fxLayoutAlign="center">
-  <mat-card fxFlex.xs="100%" fxFlex="400px">
-    <mat-card-title>{{client?.firstName}} {{client?.lastName}}</mat-card-title>
-    <mat-list role="list">
-        <mat-list-item role="listitem"> {{client?.phone}} </mat-list-item>
-        <mat-list-item role="listitem"> {{client?.email}} </mat-list-item>
-        <mat-list-item role="listitem"> {{client?.service}} </mat-list-item>
-        <!-- <mat-list-item role="listitem"> Last Appointment </mat-list-item>
-        <mat-list-item role="listitem"> 
-          <p matLine> Next Appointment </p>
-          <p matLine> Start Time | End Time </p>
-        </mat-list-item> -->
-       </mat-list>
-    <mat-card-actions>
-        <button type="submit" mat-raised-button color="primary">Edit Client</button>
-    </mat-card-actions>
-  </mat-card>
+<div *ngIf="client">
+  <section class="client-card" fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex.xs="100%" fxFlex="400px">
+      <mat-card-title>{{client.firstName}} {{client.lastName}}</mat-card-title>
+      <mat-list role="list">
+          <mat-list-item role="listitem"> {{client.phone}} </mat-list-item>
+          <mat-list-item role="listitem"> {{client.email}} </mat-list-item>
+          <mat-list-item role="listitem"> {{client.service}} </mat-list-item>
+          <!-- <mat-list-item role="listitem"> Last Appointment </mat-list-item>
+          <mat-list-item role="listitem"> 
+            <p matLine> Next Appointment </p>
+            <p matLine> Start Time | End Time </p>
+          </mat-list-item> -->
+      </mat-list>
+      <form fxLayout="column" fxLayoutAlign="left" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <mat-form-field>
+            <input type="text" matInput placeholder="First Name" [(ngModel)]="client.firstName" name="firstName">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Last Name"  [(ngModel)]="client.lastName" name="lastName">
+          </mat-form-field>
+          <mat-form-field>
+              <input type="text" matInput placeholder="Phone" [(ngModel)]="client.phone" name="phone">
+          </mat-form-field>
+          <mat-form-field>
+              <input type="email" matInput placeholder="Email" [(ngModel)]="client.email" name="email">
+          </mat-form-field>
+          <mat-form-field>
+              <input type="text" matInput placeholder="Service" [(ngModel)]="client.service" name="service">
+          </mat-form-field>
+        </form>
+        <mat-card-actions>
+            <button (click)="save()" mat-raised-button color="primary">Edit Client</button>
+        </mat-card-actions>
+      </mat-card>
+  </section>
+</div>
+<!-- <input [(ngModel)]="hero.name" placeholder="name"/> -->
 
-</section>
+<!-- <section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-form-field>
+        <input type="text" matInput placeholder="First Name" ngModel name="firstName">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Last Name" ngModel name="lastName">
+      </mat-form-field>
+      <mat-form-field>
+          <input type="text" matInput placeholder="Phone" ngModel name="phone">
+      </mat-form-field>
+      <mat-form-field>
+          <input type="email" matInput placeholder="Email" ngModel name="email">
+      </mat-form-field>
+     
+      <mat-form-field>
+          <input matInput [matDatepicker]="lastAppt" placeholder="Last Appointment" ngModel name="lastAppt">
+          <mat-datepicker-toggle matSuffix [for]="lastAppt"></mat-datepicker-toggle>
+          <mat-datepicker #lastAppt></mat-datepicker>
+      </mat-form-field>
+     <mat-form-field>
+          <input matInput [matDatepicker]="nextAppt" placeholder="Next Appointment" ngModel name="nextAppt">
+          <mat-datepicker-toggle matSuffix [for]="nextAppt"></mat-datepicker-toggle>
+          <mat-datepicker #nextAppt></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+          <input type="time" matInput placeholder="Start Time" ngModel name="startTime">
+      </mat-form-field>
+      <mat-form-field>
+          <input type="time" matInput placeholder="End Time" ngModel name="endTime">
+      </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
+  </section> -->
