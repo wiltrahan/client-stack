@@ -1,3 +1,4 @@
+import { CalendarComponent } from './calendar/calendar.component';
 import { ClientFormComponent } from './client-info/client-form/client-form.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { ClientsTableComponent } from './clients-table/clients-table.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: '', component: ClientsTableComponent },
   { path: 'client-form', component: ClientFormComponent },
   { path: 'client-info/:id', component: ClientInfoComponent },
-  { path: 'client-edit/:id', component: ClientEditComponent}
+  { path: 'client-edit/:id', component: ClientEditComponent},
+  { path: 'calendar', component: CalendarComponent}
 ];
 
 @NgModule({

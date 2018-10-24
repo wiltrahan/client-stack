@@ -1,3 +1,4 @@
+import { CalendarHeaderComponent } from './calendar/calendar-header/calendar-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './core/data.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,10 @@ import { FlexLayoutModule, CoreModule } from '@angular/flex-layout';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { ClientEditComponent } from './client-info/client-edit/client-edit.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { CommonModule } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { ClientEditComponent } from './client-info/client-edit/client-edit.compo
     ClientFormComponent,
     HeaderComponent,
     SidenavListComponent,
-    ClientEditComponent
+    ClientEditComponent,
+    CalendarComponent,
+    CalendarHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,12 @@ import { ClientEditComponent } from './client-info/client-edit/client-edit.compo
     FlexLayoutModule,
     FormsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
