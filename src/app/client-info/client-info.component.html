@@ -19,28 +19,11 @@
             <p matLine> Start Time | End Time </p>
           </mat-list-item> -->
       </mat-list>
-      <br/> <br/>
-      <form fxLayout="column" fxLayoutAlign="left" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
-          <mat-form-field>
-            <input type="text" matInput placeholder="First Name" [(ngModel)]="client.firstName" name="firstName">
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" matInput placeholder="Last Name"  [(ngModel)]="client.lastName" name="lastName">
-          </mat-form-field>
-          <mat-form-field>
-              <input type="text" matInput placeholder="Phone" [(ngModel)]="client.phone" name="phone">
-          </mat-form-field>
-          <mat-form-field>
-              <input type="email" matInput placeholder="Email" [(ngModel)]="client.email" name="email">
-          </mat-form-field>
-          <mat-form-field>
-              <input type="text" matInput placeholder="Service" [(ngModel)]="client.service" name="service">
-          </mat-form-field>
-        </form>
         <mat-card-actions>
-            <button (click)="editClient()" mat-raised-button color="primary">Save Changes</button>
+            <a routerLink="/client-edit/{{client.id}}"><button mat-raised-button color="primary"> Edit Client</button></a>
             <button (click)="goBack()" mat-raised-button color="primary">Back To List</button>
         </mat-card-actions>
       </mat-card>
   </section>
 </div>
+

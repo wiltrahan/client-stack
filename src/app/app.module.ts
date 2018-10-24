@@ -13,6 +13,7 @@ import { ClientFormComponent } from './client-info/client-form/client-form.compo
 import { FlexLayoutModule, CoreModule } from '@angular/flex-layout';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { ClientEditComponent } from './client-info/client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     ClientInfoComponent,
     ClientFormComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    ClientEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div *ngIf="client">
+
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field>
+      <input type="text" matInput placeholder="First Name" [(ngModel)]="client.firstName" name="firstName">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Last Name"  [(ngModel)]="client.lastName" name="lastName">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Phone" [(ngModel)]="client.phone" name="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" [(ngModel)]="client.email" name="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Service" [(ngModel)]="client.service" name="service">
+    </mat-form-field>
+  </form>
+      <button (click)="editClient()" mat-raised-button color="primary">Save Changes</button>
+      <button (click)="goBack()" mat-raised-button color="primary">Back To Client</button>
+</section>
+  </div>

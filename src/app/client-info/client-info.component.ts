@@ -32,13 +32,4 @@ export class ClientInfoComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  editClient(): void {
-    this.dataService.updateClient(this.client)
-      .subscribe(
-        data => {
-          alert('Update Sucessful for ' + data.firstName + ' ' + data.lastName);
-        }
-      );
-  }
 }
