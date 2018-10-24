@@ -1,4 +1,3 @@
-import { DataSource } from '@angular/cdk/collections';
 import { IClient, IClientTable } from './../shared/interfaces';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -25,6 +24,10 @@ export class DataService  {
 
   updateClient(client: IClient): Observable<any> {
     return this.http.put(this.baseUrl, client, httpOptions);
+  }
+
+  addClient(client: IClient): Observable<any> {
+    return this.http.post<IClient>(this.baseUrl, client, httpOptions);
   }
 
 }
