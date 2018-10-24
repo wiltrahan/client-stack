@@ -4,22 +4,18 @@
       <mat-card-title>{{client.firstName}} {{client.lastName}}</mat-card-title>
       <mat-divider [inset]="true"></mat-divider>
       <mat-list role="list">
-          <mat-list-item role="listitem">Phone: {{client.phone}} </mat-list-item>
-          <mat-list-item role="listitem">Email: {{client.email}} </mat-list-item>
-          <mat-list-item role="listitem">Service: {{client.service}} </mat-list-item>
-          <mat-list-item role="listitem">Last Appointment: {{client.lastAppt | date}}</mat-list-item>
+          <mat-list-item role="listitem">PHONE: {{client.phone}}</mat-list-item>
+          <mat-list-item role="listitem">EMAIL: {{client.email}}</mat-list-item>
+          <mat-list-item role="listitem">LAST APPOINTMENT: {{client.lastAppt | date}}</mat-list-item>
           <mat-list-item role="listitem">
-            <p matLine>Next Appointment: {{client.nextAppt | date}}</p>
-            <p matLine>{{client.startTime }} -- {{client.endTime}}</p>
+            <p matLine>NEXT APPOINTMENT: {{client.nextAppt | date}}</p>
+            <p matLine>{{client.startTime }} -- {{client.endTime }}</p>
           </mat-list-item>
-          <mat-divider [inset]="true"></mat-divider>
-          <!-- <mat-list-item role="listitem"> Last Appointment </mat-list-item>
-          <mat-list-item role="listitem"> 
-            <p matLine> Next Appointment </p>
-            <p matLine> Start Time | End Time </p>
-          </mat-list-item> -->
+          <mat-list-item class="mat-list-item-word-wrap" role="listitem">
+            <p matLine>SERVICE: {{client.service}}</p>
+          </mat-list-item>
       </mat-list>
-        <mat-card-actions>
+        <mat-card-actions fxLayout fxLayoutAlign="center">
             <a routerLink="/client-edit/{{client.id}}"><button mat-raised-button color="primary"> Edit Client</button></a>
             <button (click)="goBack()" mat-raised-button color="primary">Back To List</button>
         </mat-card-actions>
