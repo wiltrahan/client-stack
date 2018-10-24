@@ -2,16 +2,24 @@
   <section class="client-card" fxLayout fxLayoutAlign="center">
     <mat-card fxFlex.xs="100%" fxFlex="400px">
       <mat-card-title>{{client.firstName}} {{client.lastName}}</mat-card-title>
+      <mat-divider [inset]="true"></mat-divider>
       <mat-list role="list">
-          <mat-list-item role="listitem"> {{client.phone}} </mat-list-item>
-          <mat-list-item role="listitem"> {{client.email}} </mat-list-item>
-          <mat-list-item role="listitem"> {{client.service}} </mat-list-item>
+          <mat-list-item role="listitem">Phone: {{client.phone}} </mat-list-item>
+          <mat-list-item role="listitem">Email: {{client.email}} </mat-list-item>
+          <mat-list-item role="listitem">Service: {{client.service}} </mat-list-item>
+          <mat-list-item role="listitem">Last Appointment: {{client.lastAppt | date}}</mat-list-item>
+          <mat-list-item role="listitem">
+            <p matLine>Next Appointment: {{client.nextAppt | date}}</p>
+            <p matLine>{{client.startTime }} -- {{client.endTime}}</p>
+          </mat-list-item>
+          <mat-divider [inset]="true"></mat-divider>
           <!-- <mat-list-item role="listitem"> Last Appointment </mat-list-item>
           <mat-list-item role="listitem"> 
             <p matLine> Next Appointment </p>
             <p matLine> Start Time | End Time </p>
           </mat-list-item> -->
       </mat-list>
+      <br/> <br/>
       <form fxLayout="column" fxLayoutAlign="left" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
           <mat-form-field>
             <input type="text" matInput placeholder="First Name" [(ngModel)]="client.firstName" name="firstName">
