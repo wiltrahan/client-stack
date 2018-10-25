@@ -1,4 +1,4 @@
-import { IClient, IClientTable } from './../shared/interfaces';
+import { IClient } from './../shared/interfaces';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -13,8 +13,8 @@ export class DataService  {
 
   constructor(private http: HttpClient) { }
 
-  getClients(): Observable<IClientTable[]> {
-    return this.http.get<IClientTable[]>(this.baseUrl);
+  getClients(): Observable<IClient[]> {
+    return this.http.get<IClient[]>(this.baseUrl);
   }
 
   getMyClient(id: number): Observable<IClient> {
