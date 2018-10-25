@@ -1,5 +1,5 @@
 import { IClient } from './../shared/interfaces';
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { DataService } from '../core/data.service';
 
@@ -9,47 +9,45 @@ import { DataService } from '../core/data.service';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
 
   clients: IClient[];
   constructor(private dataService: DataService) { }
 
   view = 'month';
   viewDate: Date = new Date();
-  testData = {
-    start: new Date('2018-10-29 09:00:00'),
-    end: new Date('2018-10-29 10:00:00'),
-    title: 'Wil Trahan'
-  };
   events: CalendarEvent[] = this.getClients();
-
-  ngOnInit() {
-    this.getClients();
-  }
 
   getClients(): CalendarEvent[] {
     this.dataService.getClients()
     .subscribe(clients => {
         this.clients = clients;
-        this.events = this.clients.map(event => ({ start: event.nextAppt, title: event.firstName + ' ' + event.lastName}));
-        this.events.forEach(function(title) {
-          console.log(title);
-        });
+        this.events = this.clients.map(event => ({
+          id: event.id,
+          start: new Date(event.nextAppt),
+          title: event.firstName + ' ' + event.lastName
+        }));
       });
       return this.events;
-
   }
 
-  // mapClientsToCalendar(clients: IClient[]): CalendarEvent[] {
-  //   this.events.map(val => <CalendarEvent[]> {
-  //     start: val.startTime,
-  //     title: val.lastName
-  //   });
-  //   return this.events;
+  parseTime(timeString): any {
+    if (timeString === '') { return null; }
 
-  // }
-  // array.map(val => <IKeys>{
-  //   key1: val.key1,
-  //   key2: val.key2
-  // });
+    const time = timeString.match(/(\d+)(:(\d\d))?\s*(p?)/i);
+    if (time == null) { return null; }
+    let hours = parseInt(time[1], 10);
+
+    if (hours === 12 && !time[4]) {
+        hours = 0;
+    } else {
+      hours += (hours < 12 && time[4]) ? 12 : 0;
+    }
+    const d = new Date();
+    d.setHours(hours);
+    d.setMinutes(parseInt(time[3], 10) || 0);
+    d.setSeconds(0, 0);
+    // console.log(d.getDate());
+    return d;
+  }
 }
