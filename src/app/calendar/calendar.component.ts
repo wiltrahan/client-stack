@@ -11,6 +11,12 @@ export class CalendarComponent {
 
   view = 'month';
   viewDate: Date = new Date();
-  events: CalendarEvent[] = [];
+  testData = {
+    start: new Date('2018-10-29 09:00:00'),
+    end: new Date('2018-10-29 10:00:00'),
+    title: 'Wil Trahan'
+  };
+  events: CalendarEvent[] = [this.testData];
 
 }
+

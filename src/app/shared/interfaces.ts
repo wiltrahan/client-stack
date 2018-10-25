@@ -8,8 +8,17 @@ export interface IClient {
 }
 
 export interface IClientTable {
-  id?: number;
+  id: number;
   lastName: string;
   firstName: string;
   phone: string;
+}
+
+export interface IClientCalendar {
+  id: number;
+  lastName: string;
+  firstName: string;
+  nextAppt: Date;
+  startTime: string;
+  endTime: string;
 }
