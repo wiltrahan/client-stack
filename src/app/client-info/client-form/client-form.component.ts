@@ -26,6 +26,7 @@ export class ClientFormComponent implements OnInit {
     this.dataService.addClient(form.value)
       .subscribe(data => {
         alert('New Client ' + data.firstName + ' ' + data.lastName);
+        console.log(data.nextAppt);
       });
       this.goBack();
   }

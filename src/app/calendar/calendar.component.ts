@@ -24,30 +24,32 @@ export class CalendarComponent {
         this.clients = clients;
         this.events = this.clients.map(event => ({
           id: event.id,
-          start: new Date(event.nextAppt),
+          start: this.setDateTime(new Date(event.nextAppt), event.startTime),
           title: event.firstName + ' ' + event.lastName
         }));
       });
+
       return this.events;
   }
 
-  parseTime(timeString): any {
-    if (timeString === '') { return null; }
+  setDateTime(date, time): Date {
+    const index = time.indexOf(':'); // replace with ":" for differently displayed time.
+    const index2 = time.indexOf(' ');
 
-    const time = timeString.match(/(\d+)(:(\d\d))?\s*(p?)/i);
-    if (time == null) { return null; }
-    let hours = parseInt(time[1], 10);
+    let hours = time.substring(0, index);
+    const minutes = time.substring(index + 1, index2);
 
-    if (hours === 12 && !time[4]) {
-        hours = 0;
-    } else {
-      hours += (hours < 12 && time[4]) ? 12 : 0;
+    const mer = time.substring(index2 + 1, time.length);
+    if (mer === 'PM') {
+        hours = hours + 12;
     }
-    const d = new Date();
-    d.setHours(hours);
-    d.setMinutes(parseInt(time[3], 10) || 0);
-    d.setSeconds(0, 0);
-    // console.log(d.getDate());
-    return d;
-  }
+
+    // date = new Date();
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    date.setSeconds('00');
+
+    console.log(date);
+    return date;
+}
 }
