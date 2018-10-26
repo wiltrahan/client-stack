@@ -8,7 +8,7 @@
           <mat-list-item role="listitem">EMAIL: {{client.email}}</mat-list-item>
           <mat-list-item role="listitem">LAST APPOINTMENT: {{client.lastAppt | date}}</mat-list-item>
           <mat-list-item role="listitem">
-            <p matLine>NEXT APPOINTMENT: {{client.nextAppt | date}}</p>
+            <p matLine>NEXT APPOINTMENT: {{client.nextAppt | date:'short'}}</p>
             <p matLine>{{client.startTime }} -- {{client.endTime }}</p>
           </mat-list-item>
           <mat-list-item class="mat-list-item-word-wrap" role="listitem">
