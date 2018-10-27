@@ -33,16 +33,17 @@ export class CalendarComponent {
   }
 
   setDateTime(date, time): Date {
+    time = time + ' ';
     const index = time.indexOf(':'); // replace with ":" for differently displayed time.
     const index2 = time.indexOf(' ');
 
-    let hours = time.substring(0, index);
+    const hours = time.substring(0, index);
     const minutes = time.substring(index + 1, index2);
 
-    const mer = time.substring(index2 + 1, time.length);
-    if (mer === 'PM') {
-        hours = hours + 12;
-    }
+    // const mer = time.substring(index2 + 1, time.length);
+    // if (mer === 'PM') {
+    //     hours = hours + 12;
+    // }
 
     // date = new Date();
     date.setHours(hours);
