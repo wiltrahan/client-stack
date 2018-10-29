@@ -40,4 +40,10 @@ export class ClientEditComponent implements OnInit {
         }
       );
   }
+
+  deleteClient(): void {
+    this.dataService.deleteClient(this.client.id).subscribe();
+    alert(this.client.firstName + ' ' + this.client.lastName + ' has been deleted.');
+    console.log('Delete Successful ' + this.client.id);
+  }
 }

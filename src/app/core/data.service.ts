@@ -30,5 +30,12 @@ export class DataService  {
     return this.http.post<IClient>(this.baseUrl, client, httpOptions);
   }
 
+  deleteClient(id: number): Observable<IClient> {
+    // const id = typeof client === 'number' ? client : client.id;
+    const url = `${this.baseUrl}/${id}`;
+
+    return this.http.delete<IClient>(url, httpOptions);
+  }
+
 }
 

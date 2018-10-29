@@ -32,4 +32,5 @@ export class ClientInfoComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
 }
