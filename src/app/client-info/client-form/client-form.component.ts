@@ -1,7 +1,7 @@
 import { DataService } from './../../core/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-client-form',
   templateUrl: './client-form.component.html',
@@ -11,7 +11,7 @@ export class ClientFormComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private location: Location
+    private router: Router
   ) { }
 
 
@@ -19,14 +19,13 @@ export class ClientFormComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigateByUrl('/');
   }
 
   onSubmit(form: NgForm) {
     this.dataService.addClient(form.value)
       .subscribe(data => {
         alert('New Client ' + data.firstName + ' ' + data.lastName);
-        console.log(data.nextAppt);
       });
       this.goBack();
   }

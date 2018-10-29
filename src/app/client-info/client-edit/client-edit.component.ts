@@ -1,7 +1,7 @@
 import { IClient } from './../../shared/interfaces';
 import { Location } from '@angular/common';
 import { DataService } from './../../core/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,7 +15,7 @@ export class ClientEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private location: Location
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,15 +28,17 @@ export class ClientEditComponent implements OnInit {
       .subscribe(client => this.client = client);
   }
 
-  goBack(): void {
-    this.location.back();
+  goBack(id: number): void {
+    this.router.navigateByUrl('client-info/' + id);
   }
 
   editClient(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
     this.dataService.updateClient(this.client)
       .subscribe(
         data => {
           alert('Update successful for ' + data.firstName + ' ' + data.lastName);
+          this.goBack(id);
         }
       );
   }
@@ -44,6 +46,6 @@ export class ClientEditComponent implements OnInit {
   deleteClient(): void {
     this.dataService.deleteClient(this.client.id).subscribe();
     alert(this.client.firstName + ' ' + this.client.lastName + ' has been deleted.');
-    console.log('Delete Successful ' + this.client.id);
+    this.router.navigateByUrl('/');
   }
 }
