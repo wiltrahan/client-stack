@@ -1,4 +1,4 @@
-import { ClientModuleComponent } from './../client-module/client-module.component';
+import { ClientModalComponent } from './../client-modal/client-modal.component';
 import { DataService } from './../../core/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -36,7 +36,7 @@ export class ClientFormComponent implements OnInit {
   }
 
   onSuccess() {
-    this.dialog.open(ClientModuleComponent);
+    this.dialog.open(ClientModalComponent);
     this.goBack();
   }
 }
