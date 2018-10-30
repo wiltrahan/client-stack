@@ -1,5 +1,4 @@
 import { IClient } from './../../shared/interfaces';
-import { Location } from '@angular/common';
 import { DataService } from './../../core/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
