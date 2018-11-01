@@ -21,6 +21,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { ClientModalComponent } from './client-info/client-modal/client-modal.component';
+import { CalendarModalComponent } from './calendar/calendar-modal/calendar-modal.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ClientModalComponent } from './client-info/client-modal/client-modal.co
     CalendarComponent,
     CalendarHeaderComponent,
     FooterComponent,
-    ClientModalComponent
+    ClientModalComponent,
+    CalendarModalComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,9 @@ import { ClientModalComponent } from './client-info/client-modal/client-modal.co
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
-  entryComponents: [ClientModalComponent]
+  entryComponents: [
+    ClientModalComponent,
+    CalendarModalComponent
+  ]
 })
 export class AppModule { }
