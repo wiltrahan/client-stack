@@ -2,6 +2,8 @@ import { IClient } from './../../shared/interfaces';
 import { DataService } from './../../core/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ClientModalComponent } from './../client-modal/client-modal.component';
 
 @Component({
   selector: 'app-client-edit',
@@ -14,7 +16,8 @@ export class ClientEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -44,7 +47,18 @@ export class ClientEditComponent implements OnInit {
 
   deleteClient(): void {
     this.dataService.deleteClient(this.client.id).subscribe();
-    alert(this.client.firstName + ' ' + this.client.lastName + ' has been deleted.');
+    this.onSuccess(this.client);
+  }
+
+  onSuccess(client: IClient) {
+    this.dialog.open(ClientModalComponent, {
+      data: {
+        title: 'Deleted',
+        subtitle: 'deleted from',
+        firstName: client.firstName,
+        lastName: client.lastName
+      }
+    });
     this.router.navigateByUrl('/');
   }
 }

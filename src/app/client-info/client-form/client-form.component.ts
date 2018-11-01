@@ -30,13 +30,19 @@ export class ClientFormComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.dataService.addClient(form.value)
       .subscribe(data => {
-        // alert('New Client ' + data.firstName + ' ' + data.lastName);
-        this.onSuccess();
+        this.onSuccess(data);
       });
   }
 
-  onSuccess() {
-    this.dialog.open(ClientModalComponent);
+  onSuccess(data) {
+    this.dialog.open(ClientModalComponent, {
+      data: {
+        title: 'Success!',
+        subtitle: 'added to',
+        firstName: data.firstName,
+        lastName: data.lastName
+      }
+    });
     this.goBack();
   }
 }

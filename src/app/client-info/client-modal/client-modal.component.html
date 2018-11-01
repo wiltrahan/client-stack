@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>Client info will be here</h1>
+<h1 mat-dialog-title id="mat-title">{{passedData.title}}</h1>
+<mat-dialog-content>
+  <p>{{ passedData.firstName}} {{passedData.lastName}}
+    has been {{passedData.subtitle}} the Client Stack!
+  </p>
+</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button>Works</button>
+  <button mat-button (click)="closeModal()">Close</button>
 </mat-dialog-actions>
