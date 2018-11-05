@@ -1,6 +1,28 @@
 # ClientStack
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+This is one of my final projects for the [CareerDevs Computer Science Academy](http://careerdevs.com/).
+The corresponding back end, which was written in Java, can be found at [ClientStackAPI](https://github.com/wiltrahan/client_stackAPI).
+
+## Technolgies Used
+* Angular 7
+* Angular CLI
+* Angular Material
+* Typescript
+* Bootstrap
+
+## User Stories
+* Users Can
+  * Add a new client
+  * Retrieve a list of all clients
+  * Retrieve an individual client
+  * Edit an individual client
+  * Delete an individual client
+  * Keep track of all appointments in a custom calendar by;
+    * Month
+    * Week
+    * Day
+    * Hour
+ 
 
 ## Development server
 
