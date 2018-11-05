@@ -11,6 +11,8 @@ The corresponding back end, which was written in Java, can be found at [ClientSt
 * Bootstrap
 
 ## User Stories
+The application functions as a way for a hair stylist to organize their list of clients along with information about them including; phone number, email, last appointment date, next appointment date, and their usual services.
+
 * Users Can
   * Add a new client
   * Retrieve a list of all clients
