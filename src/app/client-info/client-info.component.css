@@ -7,9 +7,9 @@ mat-card-title {
 mat-card-actions {
   margin-top: 20px;
 }
-mat-divider {
+/* mat-divider {
   border-top-color: #3f51b5;
-}
+} */
 .mat-list-item-word-wrap {
   height: initial !important;
 }

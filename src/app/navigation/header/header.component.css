@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 a {
   text-decoration: none;
   color: white;
+  font-family: 'Raleway', sans-serif;
 }
 
 a:hover,
@@ -17,4 +19,8 @@ a:active {
 .nav-caption {
   display: inline-block;
   padding-left: 6px;
+}
+
+mat-toolbar {
+  border-bottom: 2px ridge #E65100;
 }
