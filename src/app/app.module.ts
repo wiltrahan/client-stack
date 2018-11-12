@@ -22,6 +22,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { ClientModalComponent } from './client-info/client-modal/client-modal.component';
 import { CalendarModalComponent } from './calendar/calendar-modal/calendar-modal.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CalendarModalComponent } from './calendar/calendar-modal/calendar-modal
     CalendarHeaderComponent,
     FooterComponent,
     ClientModalComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

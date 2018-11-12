@@ -1,0 +1,14 @@
+.about-card {
+  padding: 20px;
+}
+mat-card-title {
+  text-align: center;
+}
+
+mat-card-content {
+  padding: 10px;
+}
+
+#list-title {
+  padding-top: 20px;
+}

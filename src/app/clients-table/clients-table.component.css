@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
 
 #filter-box {
   background: #ECEFF1; 
@@ -9,7 +9,7 @@ mat-header-row {
 }
 mat-header-cell {
   font-size: 1.2em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #37474F;
   background: #ECEFF1; 
 
@@ -21,4 +21,8 @@ mat-row:hover {
 
 mat-row {
   border-bottom: 1px solid	#37474F;
+}
+
+mat-cell {
+  font-family: 'Montserrat', sans-serif;
 }
