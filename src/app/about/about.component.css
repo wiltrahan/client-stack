@@ -7,8 +7,9 @@ mat-card-title {
 
 mat-card-content {
   padding: 10px;
+  text-align: justify;
 }
 
 #list-title {
-  padding-top: 20px;
+  padding-top: 10px;
 }
