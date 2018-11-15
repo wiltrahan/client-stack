@@ -4,14 +4,14 @@
       <mat-card-title>{{client.firstName}} {{client.lastName}}</mat-card-title>
       <mat-divider [inset]="true"></mat-divider>
       <mat-list role="list">
-          <mat-list-item role="listitem">PHONE: {{client.phone}}</mat-list-item>
-          <mat-list-item role="listitem">EMAIL: {{client.email}}</mat-list-item>
-          <mat-list-item role="listitem">LAST APPOINTMENT: {{client.lastAppt | date}}</mat-list-item>
-          <mat-list-item role="listitem">
+          <mat-list-item role="listitem" class="list-info"><span class="info-type">PHONE:</span> {{client.phone}}</mat-list-item>
+          <mat-list-item role="listitem" class="list-info">EMAIL: {{client.email}}</mat-list-item>
+          <mat-list-item role="listitem" class="list-info">LAST APPOINTMENT: {{client.lastAppt | date}}</mat-list-item>
+          <mat-list-item role="listitem" class="list-info">
             <p matLine>NEXT APPOINTMENT: {{client.nextAppt | date }}</p>
             <p matLine>{{ client.startTime }} -- {{client.endTime }}</p>
           </mat-list-item>
-          <mat-list-item class="mat-list-item-word-wrap" role="listitem">
+          <mat-list-item class="mat-list-item-word-wrap list-info" role="listitem">
             <p matLine>SERVICE: {{client.service}}</p>
           </mat-list-item>
       </mat-list>
